@@ -1,0 +1,28 @@
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+    @if $point == xlargedesktop {
+       // 1800px - max site width
+      @media (min-width: 112.5em) { @content ; }
+    }
+    @if $point == largedesktop {
+       // 1392px
+      @media (min-width: 87em) { @content ; }
+    }
+     @if $point == desktop {
+        // 1120px
+       @media (min-width: 70em) { @content ; }
+    }
+     @else if $point == tablet {
+       // 768px
+       @media (min-width: 48em)  { @content ; }
+    }
+    @else if $point == mobile {
+       // 480px
+       @media (max-width: 30em)  { @content ; }
+  
+    }
+  }
+  
