@@ -1,3 +1,26 @@
+/*********************
+COLOURS
+*********************/
+/* red */
+/* light grey */
+/* grey */
+/* dark grey */
+/* darker grey */
+/* dark grey */
+/*********************
+SIZES
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+@font-face {
+  font-family: Verlag Light;
+  src: url("/wp-content/themes/hallartstheme/fonts/Verlag-Light.otf") format("opentype"); }
+
+@font-face {
+  font-family: Proxima Nova;
+  src: url("/wp-content/themes/hallartstheme/fonts/Proxima Nova Regular.otf") format("opentype"); }
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +37,13 @@ TYPOGRAPHY
 *********************/
 :root {
   font-size: em(16); }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Verlag Light; }
+
+p {
+  font-family: Proxima Nova; }
 
