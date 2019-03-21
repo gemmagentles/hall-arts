@@ -1,3 +1,5 @@
+@import 'vars.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -18,4 +20,15 @@ TYPOGRAPHY
 
 :root {
   font-size: em(16);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $primary-font-family;
+}
+
+p {
+  font-family: $secondary-font-family;
 }

@@ -14,3 +14,20 @@ SIZES
 *********************/
 
 $site-width: 1800px;
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+@font-face {
+    font-family: Verlag Light;
+    src: url("/wp-content/themes/hallartstheme/fonts/Verlag-Light.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: Proxima Nova;
+    src: url("/wp-content/themes/hallartstheme/fonts/Proxima Nova Regular.otf") format("opentype");
+  }
+
+  $primary-font-family: Verlag Light;
+  $secondary-font-family: Proxima Nova;
