@@ -62,6 +62,7 @@
                         <button class="hall-arts-button hall-arts-button__primary">
                             Book Now
                         </button>
+                        <?php sub_nav(); ?>
                     </div>
                 </nav>
                 <!-- Content inside hamburger menu END -->
