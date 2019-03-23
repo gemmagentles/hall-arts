@@ -1,4 +1,8 @@
 @import 'vars.scss';
+@import 'breakpoints.scss';
+@import 'pixel-to-em.scss';
+@import 'header.scss';
+@import 'button.scss';
 
 * {
   margin: 0;
@@ -12,6 +16,22 @@ body {
 
 section {
   position: relative;
+}
+
+/*********************
+ANIMATION
+*********************/
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
 }
 
 /*********************

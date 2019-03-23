@@ -1,0 +1,257 @@
+.header {
+    background: black;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: $site-width;
+    margin: 0 auto;
+}
+  
+.nav__hamburger-icon {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 12;
+    position: absolute;
+    top: 42px;
+    left: 18px;
+  
+    .hamburger-bar1, .hamburger-bar2, .hamburger-bar3 {
+      width: 35px;
+      height: 2px;
+      background-color: $tertiary-color;
+      margin: 7px 0;
+      transition: 0.4s;
+    }
+
+    .hamburger-bar2 {
+        width: 40px;
+    }
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-transform: uppercase;
+    color: $primary-color;
+    font-family: $secondary-font-family;
+    margin-top: 108px;
+    margin-left: 20px;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.social {
+    &__icon {
+        width: 30px;
+    }
+}
+
+.logo {
+    padding: 52px;
+}
+
+.nav {
+    display: none;
+    left: -100%;
+    visibility: hidden;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 6s;
+    background: white !important;
+    // transition: 2s linear all;
+    transition: visibility 0 ease 500ms;
+    transition: left 250ms ease 0;
+    // transition-delay: visibility 2s;
+    // animation-name: fadeout;
+
+    // @keyframes fadeout {
+    //     to {opacity: 0;}
+    // }
+
+    // animation-name: slideout;
+    // animation-duration: 0.3s;
+
+    // @keyframes slideout {
+    //     to {left: -100%;}
+    // }
+}
+
+.book-now-button__wrapper {
+    position: relative;
+    top: 55px;
+}
+  
+   /* style the hamburger menu icon to transition into a cross when clicked */
+  
+  .nav__open {
+    transition: 1s opacity;
+    opacity: 1;
+  
+    .hamburger-bar1, .hamburger-bar2, .hamburger-bar3 {
+        background-color: $primary-color;
+    }
+
+    .hamburger-bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+  
+    .hamburger-bar2 { opacity: 0; }
+  
+    .hamburger-bar3 {
+      -webkit-transform: rotate(45deg) translate(-6px, -5px);
+      transform: rotate(45deg) translate(-6px, -5px);
+    }  
+  }
+  
+   /* inside the hamburger menu once opened */
+   .menu-section {
+       z-index: 11;
+   }
+   
+  .nav__open + .nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "left-column right-column right-column";
+    visibility: visible;
+    // background: $secondary-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 1s ease 0;
+    // animation-name: slidein;
+    // animation-duration: 0.3s;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    opacity: 1;
+    
+
+    @include breakpoint(desktop) {
+        width: 70%;
+    }
+
+    @include breakpoint(largedesktop) {
+        width: 50%;
+    }
+    
+    // @keyframes slidein {
+    //   from {left: -100%;}
+    // }
+  }
+
+  .right-column { grid-area: right-column; }
+
+.left-column { grid-area: left-column; }
+
+  .social {
+          
+    &__link {
+      text-decoration: none;
+      animation-name: fadein;
+      animation-duration: 2s;
+      opacity: 1;
+      
+      @keyframes fadein {
+        from {opacity: 0;}
+      }
+    }
+  }
+
+  .left-column {
+    // animation-name: fadein;
+    // animation-duration: 2s;
+    // height: 100%;
+      
+    // @keyframes fadein {
+    //     from {height: 0;}
+    // }
+
+    &::after {
+        // content: "";
+        // border-right: 1px solid $tertiary-color;
+        content: "";
+        position: absolute;
+        height: 100%;
+        border-right: 1px solid $tertiary-color;
+        width: 16px;
+        top: 0;
+        left: 200px;
+
+        animation-name: linedown;
+        animation-duration: 4s;
+        
+        @keyframes linedown {
+            from {height: 0;}
+        }
+    }
+
+    &__line {
+        border-bottom: 1px solid $tertiary-color;
+        position: absolute;
+        margin-top: 35px;
+        max-width: 400px;
+
+        animation-name: lineright;
+        animation-duration: 3s;
+        width: 100%;
+        
+        @keyframes lineright {
+            from {width: 0;}
+        }
+    }
+  }
+
+  .right-column {
+      text-align: center;
+      padding: 0 80px;
+  }
+
+  .menu-item {
+    list-style-type: none; 
+    margin: 15px 15px 30px;
+    text-transform: uppercase;
+    animation-name: fadein;
+    animation-duration: 2s;
+    opacity: 1;
+
+    @keyframes fadein {
+        from {opacity: 0;}
+    }
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
+        font-family: $primary-font-family;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $font-color;
+        }
+    }
+  }
+
+.menu-overlay-js {
+    transition: 0.7s ease all;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    z-index: 10;
+    // allow users to click anything on the screen and ignore this hidden overlay
+    pointer-events: none;
+}
+
+.menu-overlay__open {
+    opacity: 0.6;
+    visibility: visible;
+    pointer-events: auto;
+}

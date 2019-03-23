@@ -21,6 +21,224 @@ TYPOGRAPHY
   font-family: Proxima Nova;
   src: url("/wp-content/themes/hallartstheme/fonts/Proxima Nova Regular.otf") format("opentype"); }
 
+/*********************
+BREAKPOINTS
+*********************/
+/************************
+
+Example Usage:
+
+SCSS =
+
+h1 {
+    font-size: em(32);
+}
+
+Output CSS = 
+
+h1 {
+    font-size: 2em;
+}
+
+************************/
+.header {
+  background: black; }
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1800px;
+  margin: 0 auto; }
+
+.nav__hamburger-icon {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 12;
+  position: absolute;
+  top: 42px;
+  left: 18px; }
+  .nav__hamburger-icon .hamburger-bar1, .nav__hamburger-icon .hamburger-bar2, .nav__hamburger-icon .hamburger-bar3 {
+    width: 35px;
+    height: 2px;
+    background-color: #CECBC9;
+    margin: 7px 0;
+    transition: 0.4s; }
+  .nav__hamburger-icon .hamburger-bar2 {
+    width: 40px; }
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-transform: uppercase;
+  color: #E72623;
+  font-family: Proxima Nova;
+  margin-top: 108px;
+  margin-left: 20px;
+  font-size: 18px;
+  letter-spacing: 3px; }
+
+.social__icon {
+  width: 30px; }
+
+.logo {
+  padding: 52px; }
+
+.nav {
+  display: none;
+  left: -100%;
+  visibility: hidden;
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 6s;
+  background: white !important;
+  transition: visibility 0 ease 500ms;
+  transition: left 250ms ease 0; }
+
+.book-now-button__wrapper {
+  position: relative;
+  top: 55px; }
+
+/* style the hamburger menu icon to transition into a cross when clicked */
+.nav__open {
+  transition: 1s opacity;
+  opacity: 1; }
+  .nav__open .hamburger-bar1, .nav__open .hamburger-bar2, .nav__open .hamburger-bar3 {
+    background-color: #E72623; }
+  .nav__open .hamburger-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px); }
+  .nav__open .hamburger-bar2 {
+    opacity: 0; }
+  .nav__open .hamburger-bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -5px);
+    transform: rotate(45deg) translate(-6px, -5px); }
+
+/* inside the hamburger menu once opened */
+.menu-section {
+  z-index: 11; }
+
+.nav__open + .nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "left-column right-column right-column";
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 1s ease 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  opacity: 1; }
+  @media (min-width: 70em) {
+    .nav__open + .nav {
+      width: 70%; } }
+  @media (min-width: 87em) {
+    .nav__open + .nav {
+      width: 50%; } }
+
+.right-column {
+  grid-area: right-column; }
+
+.left-column {
+  grid-area: left-column; }
+
+.social__link {
+  text-decoration: none;
+  animation-name: fadein;
+  animation-duration: 2s;
+  opacity: 1; }
+
+@keyframes fadein {
+  from {
+    opacity: 0; } }
+
+.left-column::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-right: 1px solid #CECBC9;
+  width: 16px;
+  top: 0;
+  left: 200px;
+  animation-name: linedown;
+  animation-duration: 4s; }
+
+@keyframes linedown {
+  from {
+    height: 0; } }
+
+.left-column__line {
+  border-bottom: 1px solid #CECBC9;
+  position: absolute;
+  margin-top: 35px;
+  max-width: 400px;
+  animation-name: lineright;
+  animation-duration: 3s;
+  width: 100%; }
+
+@keyframes lineright {
+  from {
+    width: 0; } }
+
+.right-column {
+  text-align: center;
+  padding: 0 80px; }
+
+.menu-item {
+  list-style-type: none;
+  margin: 15px 15px 30px;
+  text-transform: uppercase;
+  animation-name: fadein;
+  animation-duration: 2s;
+  opacity: 1; }
+
+@keyframes fadein {
+  from {
+    opacity: 0; } }
+  .menu-item a {
+    text-decoration: none;
+    color: #E72623;
+    font-family: Verlag Light; }
+    .menu-item a:hover, .menu-item a:focus, .menu-item a:active {
+      color: #585454; }
+
+.menu-overlay-js {
+  transition: 0.7s ease all;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none; }
+
+.menu-overlay__open {
+  opacity: 0.6;
+  visibility: visible;
+  pointer-events: auto; }
+
+.hall-arts-button {
+  padding: 24px 40px;
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 1.67px;
+  line-height: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: Proxima Nova; }
+  .hall-arts-button__primary {
+    background: #E72623;
+    color: white;
+    transition: background-color 0.7s ease; }
+    .hall-arts-button__primary:hover, .hall-arts-button__primary:focus, .hall-arts-button__primary:active {
+      background-color: #c21815; }
+
 * {
   margin: 0;
   padding: 0;
@@ -33,10 +251,23 @@ section {
   position: relative; }
 
 /*********************
+ANIMATION
+*********************/
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear; }
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear; }
+
+/*********************
 TYPOGRAPHY
 *********************/
 :root {
-  font-size: em(16); }
+  font-size: 1em; }
 
 h1,
 h2,
